@@ -203,10 +203,15 @@ a:hover {
 }
 
 .coin-desc-link {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 40px;
   margin-top: 40px;
   padding-top: 20px;
+
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 .coin-desc-link h2 {
@@ -228,7 +233,8 @@ a:hover {
 }
 
 .coin-desc {
-  flex: 0.5;
+  flex-wrap: no wrap;
+  flex-direction: column;
 }
 
 .coin-links {
