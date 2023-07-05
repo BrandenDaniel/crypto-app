@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Button, Menu, Typography, Avatar } from "antd";
+import "../Sass/Navbar.scss";
 import { Link } from "react-router-dom";
 import {
   HomeOutlined,
@@ -34,36 +34,36 @@ const Navbar = () => {
   }, [screenSize]);
 
   return (
-    <div className="nav-container">
-      <div className="logo-container">
-        <Avatar src={icon} size="large" />
-        <Typography.Title level={2} className="logo">
+    <>
+      <div className="nav__logo">
+        <img src={icon} alt="logo" />
+        <h1>
           <Link to="/">Cryptoverse</Link>
-        </Typography.Title>
+        </h1>
       </div>
-      <Button
-        className="menu-control-container"
+      <button
+        className="nav__toggler"
         onClick={() => setActiveMenu(!activeMenu)}
       >
         <MenuOutlined />
-      </Button>
+      </button>
       {activeMenu && (
-        <Menu theme="dark">
-          <Menu.Item icon={<HomeOutlined />}>
-            <Link to="/">Home</Link>
-          </Menu.Item>
-          <Menu.Item icon={<FundOutlined />}>
-            <Link to="/cryptocurrencies">Crypto currencies</Link>
-          </Menu.Item>
-          {/* <Menu.Item icon={<MoneyCollectOutlined />}>
-            <Link to="/exchanges">Exchanges</Link>
-          </Menu.Item> */}
-          <Menu.Item icon={<BulbOutlined />}>
-            <Link to="/news">News</Link>
-          </Menu.Item>
-        </Menu>
+        <div className="nav__links">
+          <Link to="/">
+            <HomeOutlined />
+            Home
+          </Link>
+          <Link to="/cryptocurrencies">
+            <FundOutlined />
+            Crypto currencies
+          </Link>
+          <Link to="/news">
+            <BulbOutlined />
+            News
+          </Link>
+        </div>
       )}
-    </div>
+    </>
   );
 };
 

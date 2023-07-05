@@ -1,0 +1,66 @@
+@import "_variables.scss";
+
+.nav {
+  background: #001529;
+  position: fixed;
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px;
+    width: max-content;
+
+    img {
+      width: 40px;
+      display: block;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      font-weight: 500;
+    }
+
+    a {
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+
+  &__toggler {
+    display: none;
+  }
+
+  &__links {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    a {
+      color: #fff;
+      opacity: 0.7;
+      text-decoration: none;
+      line-height: 1;
+      font-weight: 400;
+      transition: 0.3s ease;
+      font-size: 0.9rem;
+
+      &:hover {
+        opacity: 1;
+      }
+
+      > span {
+        margin-right: 15px;
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+@media (min-width: $md) {
+  .nav {
+    min-height: 100vh;
+  }
+}

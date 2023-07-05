@@ -14,20 +14,16 @@ import {
 const App = () => {
   return (
     <div className="app">
-      <nav className="navbar">
+      <nav className="nav">
         <Navbar />
       </nav>
-      <div className="main">
-        <Layout>
-          <div className="routes">
-            <Routes>
-              <Route path="/" element={<Homepage />} />
-              <Route path="/cryptocurrencies" element={<Cryptocurrencies />} />
-              <Route path="/crypto/:coinId" element={<CryptoDetails />} />
-              <Route path="/news" element={<News />} />
-            </Routes>
-          </div>
-        </Layout>
+      <main className="main">
+        <Routes>
+          <Route path="/" element={<Homepage />} />
+          <Route path="/cryptocurrencies" element={<Cryptocurrencies />} />
+          <Route path="/crypto/:coinId" element={<CryptoDetails />} />
+          <Route path="/news" element={<News />} />
+        </Routes>
         <footer className="footer">
           <Typography.Title
             level={5}
@@ -42,7 +38,7 @@ const App = () => {
             <Link to="/news">News</Link>
           </Space>
         </footer>
-      </div>
+      </main>
     </div>
   );
 };
