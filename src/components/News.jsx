@@ -20,9 +20,9 @@ const News = ({ simplified }) => {
   if (!cryptoNews?.value) return "Loading...";
 
   return (
-    <Row gutter={[24, 24]}>
+    <>
       {!simplified && (
-        <Col span={24}>
+        <div>
           <Select
             showSearch
             className="select-news"
@@ -37,53 +37,46 @@ const News = ({ simplified }) => {
               <Option value={coin.name}>{coin.name}</Option>
             ))}
           </Select>
-        </Col>
+        </div>
       )}
 
       {cryptoNews.value.map((news, i) => (
-        <Col xs={24} sm={12} lg={8} key={i}>
-          <Card hoverable className="news-card">
-            <a href={news.url} target="_blank" rel="noreferrer">
-              <div className="news-image-container">
-                <Title className="news-title" level={4}>
-                  {news.name}
-                </Title>
-                <img
-                  src={
-                    news?.image?.thumbnail?.contentUrl ||
-                    "https://bitcoinexchangeguide.com/wp-content/uploads/2018/08/Bitcoin-Blockchain-and-Cryptocurrency-News-For-August-24-VIDEO-Recap.jpg"
-                  }
-                  alt="news"
-                  style={{ maxWidth: "200px", maxHeight: "100px" }}
-                />
-              </div>
+        <div key={i} className="main__news__card">
+          <a href={news.url} target="_blank" rel="noreferrer">
+            <div className="main__news__card__title-image">
+              <h2>{news.name}</h2>
+              <img
+                src={
+                  news?.image?.thumbnail?.contentUrl ||
+                  "https://bitcoinexchangeguide.com/wp-content/uploads/2018/08/Bitcoin-Blockchain-and-Cryptocurrency-News-For-August-24-VIDEO-Recap.jpg"
+                }
+                alt="news"
+              />
+            </div>
+            <div className="main__news__card__desc">
               <p>
                 {news.description > 100
                   ? `${news.description.substring(0, 100)}...`
                   : news.description}
               </p>
-              <div className="provider-container">
-                <div>
-                  <Avatar
-                    src={
-                      news.provider[0]?.image?.thumbnail?.contentUrl ||
-                      demoImage
-                    }
-                    alt="news"
-                  />
-                  <Text className="provider-name">
-                    {news.provider[0]?.name}
-                  </Text>
-                </div>
-                <Text>
-                  {moment(news.datePublished).startOf("ss").fromNow()}
-                </Text>
+            </div>
+
+            <div className="main__news__card__footer">
+              <div>
+                <img
+                  src={
+                    news.provider[0]?.image?.thumbnail?.contentUrl || demoImage
+                  }
+                  alt="news"
+                />
+                <span>{news.provider[0]?.name}</span>
               </div>
-            </a>
-          </Card>
-        </Col>
+              <span>{moment(news.datePublished).startOf("ss").fromNow()}</span>
+            </div>
+          </a>
+        </div>
       ))}
-    </Row>
+    </>
   );
 };
 

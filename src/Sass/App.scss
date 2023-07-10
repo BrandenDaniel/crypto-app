@@ -44,17 +44,20 @@ img {
 .main {
   padding: 20px;
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 
   h1 {
     font-size: 1.8rem;
     font-weight: 600;
+    margin-bottom: 20px;
   }
 
-  &__stats {
+  &__stats > div {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 15px;
-    margin: 20px 0 40px 0;
 
     > div {
       h2 {
@@ -96,7 +99,6 @@ img {
   }
 
   &__cryptos {
-    margin: 20px 0 0 0;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     // justify-content: space-evenly;
@@ -155,15 +157,94 @@ img {
   }
 
   &__news {
-    margin: 40px 0 0 0;
+    &__heading {
+      grid-column: 1 / -1;
+
+      h1 {
+        margin: 0;
+      }
+    }
+
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+
+    &__card {
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      border-radius: 6px;
+      padding: 15px;
+
+      &:hover {
+        border-color: rgba(0, 0, 0, 0.7);
+      }
+
+      > a {
+        text-decoration: none;
+        color: initial;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      h2 {
+        line-height: 1.5;
+        font-size: 1rem;
+        font-weight: 600;
+      }
+
+      &__title-image {
+        display: flex;
+        align-items: flex-start;
+        gap: 15px;
+
+        img {
+          width: 80px;
+          height: 80px;
+          object-fit: cover;
+          border-radius: 5px;
+        }
+      }
+
+      &__desc p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+      }
+
+      &__footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 5px 25px;
+
+        span {
+          font-size: 0.75rem;
+          opacity: 0.85;
+        }
+
+        > div {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          gap: 10px;
+
+          img {
+            height: 25px;
+            width: 25px;
+            object-fit: contain;
+          }
+        }
+      }
+    }
   }
 }
 
 @media (min-width: $md) {
   .main {
-    margin-left: 259.59px;
+    margin-left: 299.91px;
 
-    &__cryptos {
+    &__cryptos,
+    &__news {
       grid-template-columns: repeat(3, 1fr);
     }
   }

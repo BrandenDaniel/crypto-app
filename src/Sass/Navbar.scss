@@ -9,11 +9,11 @@
     align-items: center;
     justify-content: center;
     gap: 15px;
-    padding: 20px;
+    padding: 30px 40px;
     width: max-content;
 
     img {
-      width: 40px;
+      width: 35px;
       display: block;
     }
 
@@ -33,10 +33,10 @@
   }
 
   &__links {
-    padding: 20px;
+    padding: 10px 40px 0 40px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 30px;
 
     a {
       color: #fff;
