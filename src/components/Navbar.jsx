@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../Sass/Navbar.scss";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import {
   HomeOutlined,
   MoneyCollectOutlined,
@@ -49,18 +49,18 @@ const Navbar = () => {
       </button>
       {activeMenu && (
         <div className="nav__links">
-          <Link to="/">
+          <NavLink to="/">
             <HomeOutlined />
             Home
-          </Link>
-          <Link to="/cryptocurrencies">
+          </NavLink>
+          <NavLink to="/cryptocurrencies">
             <FundOutlined />
             Crypto currencies
-          </Link>
-          <Link to="/news">
+          </NavLink>
+          <NavLink to="/news">
             <BulbOutlined />
             News
-          </Link>
+          </NavLink>
         </div>
       )}
     </>
