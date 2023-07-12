@@ -9,7 +9,7 @@
     align-items: center;
     justify-content: center;
     gap: 15px;
-    padding: 30px 40px;
+    padding: 30px;
     width: max-content;
 
     img {
@@ -33,7 +33,7 @@
   }
 
   &__links {
-    padding: 10px 40px 0 40px;
+    padding: 10px 30px 0 30px;
     display: flex;
     flex-direction: column;
     gap: 30px;

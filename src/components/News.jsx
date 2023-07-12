@@ -22,11 +22,11 @@ const News = ({ simplified }) => {
   return (
     <>
       {!simplified && (
-        <div>
+        <div className="main__news__search">
           <Select
             showSearch
-            className="select-news"
             placeholder="Select a Crypto"
+            className="main__news__search__input"
             optionFilterProp="children"
             onChange={(value) => setNewsCategory(value)}
             filterOption={(input, option) =>
@@ -40,42 +40,47 @@ const News = ({ simplified }) => {
         </div>
       )}
 
-      {cryptoNews.value.map((news, i) => (
-        <div key={i} className="main__news__card">
-          <a href={news.url} target="_blank" rel="noreferrer">
-            <div className="main__news__card__title-image">
-              <h2>{news.name}</h2>
-              <img
-                src={
-                  news?.image?.thumbnail?.contentUrl ||
-                  "https://bitcoinexchangeguide.com/wp-content/uploads/2018/08/Bitcoin-Blockchain-and-Cryptocurrency-News-For-August-24-VIDEO-Recap.jpg"
-                }
-                alt="news"
-              />
-            </div>
-            <div className="main__news__card__desc">
-              <p>
-                {news.description.length > 150
-                  ? `${news.description.substring(0, 151)}...`
-                  : news.description}
-              </p>
-            </div>
-
-            <div className="main__news__card__footer">
-              <div>
+      <div className="main__news__cards">
+        {cryptoNews.value.map((news, i) => (
+          <div key={i} className="main__news__card">
+            <a href={news.url} target="_blank" rel="noreferrer">
+              <div className="main__news__card__title-image">
+                <h2>{news.name}</h2>
                 <img
                   src={
-                    news.provider[0]?.image?.thumbnail?.contentUrl || demoImage
+                    news?.image?.thumbnail?.contentUrl ||
+                    "https://bitcoinexchangeguide.com/wp-content/uploads/2018/08/Bitcoin-Blockchain-and-Cryptocurrency-News-For-August-24-VIDEO-Recap.jpg"
                   }
                   alt="news"
                 />
-                <span>{news.provider[0]?.name}</span>
               </div>
-              <span>{moment(news.datePublished).startOf("ss").fromNow()}</span>
-            </div>
-          </a>
-        </div>
-      ))}
+              <div className="main__news__card__desc">
+                <p>
+                  {news.description.length > 200
+                    ? `${news.description.substring(0, 201)}...`
+                    : news.description}
+                </p>
+              </div>
+
+              <div className="main__news__card__footer">
+                <div>
+                  <img
+                    src={
+                      news.provider[0]?.image?.thumbnail?.contentUrl ||
+                      demoImage
+                    }
+                    alt="news"
+                  />
+                  <span>{news.provider[0]?.name}</span>
+                </div>
+                <span>
+                  {moment(news.datePublished).startOf("ss").fromNow()}
+                </span>
+              </div>
+            </a>
+          </div>
+        ))}
+      </div>
     </>
   );
 };

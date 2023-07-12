@@ -54,6 +54,12 @@ img {
     margin-bottom: 20px;
   }
 
+  &__search {
+    input {
+      width: 200px;
+    }
+  }
+
   &__stats > div {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -157,17 +163,15 @@ img {
   }
 
   &__news {
-    &__heading {
-      grid-column: 1 / -1;
-
-      h1 {
-        margin: 0;
-      }
+    &__search__input {
+      width: 200px;
     }
 
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
+    &__cards {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
 
     &__card {
       border: 1px solid rgba(0, 0, 0, 0.2);
@@ -188,18 +192,19 @@ img {
 
       h2 {
         line-height: 1.5;
-        font-size: 1rem;
+        font-size: 1.2rem;
         font-weight: 600;
       }
 
       &__title-image {
         display: flex;
         align-items: flex-start;
+        justify-content: space-between;
         gap: 15px;
 
         img {
-          width: 80px;
-          height: 80px;
+          width: 100px;
+          height: 100px;
           object-fit: cover;
           border-radius: 5px;
         }
@@ -241,11 +246,14 @@ img {
 
 @media (min-width: $md) {
   .main {
-    margin-left: 299.91px;
+    margin-left: 274.84px;
 
-    &__cryptos,
-    &__news {
+    &__cryptos {
       grid-template-columns: repeat(3, 1fr);
+    }
+
+    &__news__cards {
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 }
@@ -254,6 +262,10 @@ img {
   .main {
     &__cryptos {
       grid-template-columns: repeat(4, 1fr);
+    }
+
+    &__news__cards {
+      grid-template-columns: repeat(3, 1fr);
     }
   }
 }
