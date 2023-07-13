@@ -1,0 +1,90 @@
+@import "_variables.scss";
+
+.nav {
+  background: #001529;
+  position: fixed;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 15px;
+    padding: 15px;
+    width: 100%;
+    position: relative;
+
+    img {
+      width: 35px;
+      display: block;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      font-weight: 500;
+    }
+
+    a {
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+
+  &__toggler {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 5px;
+    box-shadow: none;
+
+    span {
+      font-size: 1.2rem;
+    }
+  }
+
+  &__links {
+    padding: 10px 30px;
+    display: flex;
+    flex-direction: column;
+
+    a {
+      color: #fff;
+      opacity: 0.7;
+      text-decoration: none;
+      line-height: 1;
+      font-weight: 400;
+      transition: 0.3s ease;
+      font-size: 0.9rem;
+      padding: 15px 0;
+      &:hover {
+        opacity: 1;
+      }
+
+      > span {
+        margin-right: 15px;
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+@media (min-width: $md) {
+  .nav {
+    min-height: 100vh;
+    width: initial;
+
+    &__logo {
+      padding: 30px;
+      width: max-content;
+      justify-content: center;
+    }
+
+    &__toggler {
+      display: none;
+    }
+  }
+}

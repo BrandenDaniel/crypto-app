@@ -3,8 +3,8 @@ import { Select, Typography, Row, Col, Avatar, Card } from "antd";
 import moment from "moment";
 import { useGetCryptoNewsQuery } from "../services/cryptoNewsApi";
 import { useGetCryptosQuery } from "../services/cryptoApi";
+import Loader from "./Loader";
 
-const { Text, Title } = Typography;
 const { Option } = Select;
 const demoImage =
   "https://www.bing.com/th?id=OVFT.mpzuVZnv8dwIMRfQGPbOPC&pid=News";
@@ -17,16 +17,16 @@ const News = ({ simplified }) => {
   });
   const { data } = useGetCryptosQuery(100);
 
-  if (!cryptoNews?.value) return "Loading...";
+  if (!cryptoNews?.value) return <Loader />;
 
   return (
-    <Row gutter={[24, 24]}>
+    <>
       {!simplified && (
-        <Col span={24}>
+        <div className="main__news__search">
           <Select
             showSearch
-            className="select-news"
             placeholder="Select a Crypto"
+            className="main__news__search__input"
             optionFilterProp="children"
             onChange={(value) => setNewsCategory(value)}
             filterOption={(input, option) =>
@@ -37,53 +37,51 @@ const News = ({ simplified }) => {
               <Option value={coin.name}>{coin.name}</Option>
             ))}
           </Select>
-        </Col>
+        </div>
       )}
 
-      {cryptoNews.value.map((news, i) => (
-        <Col xs={24} sm={12} lg={8} key={i}>
-          <Card hoverable className="news-card">
+      <div className="main__news__cards">
+        {cryptoNews.value.map((news, i) => (
+          <div key={i} className="main__news__card">
             <a href={news.url} target="_blank" rel="noreferrer">
-              <div className="news-image-container">
-                <Title className="news-title" level={4}>
-                  {news.name}
-                </Title>
+              <div className="main__news__card__title-image">
+                <h2>{news.name}</h2>
                 <img
                   src={
                     news?.image?.thumbnail?.contentUrl ||
                     "https://bitcoinexchangeguide.com/wp-content/uploads/2018/08/Bitcoin-Blockchain-and-Cryptocurrency-News-For-August-24-VIDEO-Recap.jpg"
                   }
                   alt="news"
-                  style={{ maxWidth: "200px", maxHeight: "100px" }}
                 />
               </div>
-              <p>
-                {news.description > 100
-                  ? `${news.description.substring(0, 100)}...`
-                  : news.description}
-              </p>
-              <div className="provider-container">
+              <div className="main__news__card__desc">
+                <p>
+                  {news.description.length > 200
+                    ? `${news.description.substring(0, 201)}...`
+                    : news.description}
+                </p>
+              </div>
+
+              <div className="main__news__card__footer">
                 <div>
-                  <Avatar
+                  <img
                     src={
                       news.provider[0]?.image?.thumbnail?.contentUrl ||
                       demoImage
                     }
                     alt="news"
                   />
-                  <Text className="provider-name">
-                    {news.provider[0]?.name}
-                  </Text>
+                  <span>{news.provider[0]?.name}</span>
                 </div>
-                <Text>
+                <span>
                   {moment(news.datePublished).startOf("ss").fromNow()}
-                </Text>
+                </span>
               </div>
             </a>
-          </Card>
-        </Col>
-      ))}
-    </Row>
+          </div>
+        ))}
+      </div>
+    </>
   );
 };
 
