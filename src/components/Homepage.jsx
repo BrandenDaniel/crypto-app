@@ -5,7 +5,7 @@ import { Typography, Row, Col, Statistic } from "antd";
 import { ArrowRightOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import { Cryptocurrencies, News } from "../components";
-const { Title } = Typography;
+import Loader from "./Loader";
 
 const Homepage = () => {
   const { data, isFetching } = useGetCryptosQuery(10);
@@ -16,7 +16,7 @@ const Homepage = () => {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   };
 
-  if (isFetching) return "Loading...";
+  if (isFetching) return <Loader />;
 
   return (
     <>

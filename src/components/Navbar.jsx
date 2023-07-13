@@ -40,13 +40,14 @@ const Navbar = () => {
         <h1>
           <Link to="/">Cryptoverse</Link>
         </h1>
+
+        <button
+          className="nav__toggler"
+          onClick={() => setActiveMenu(!activeMenu)}
+        >
+          <MenuOutlined />
+        </button>
       </div>
-      <button
-        className="nav__toggler"
-        onClick={() => setActiveMenu(!activeMenu)}
-      >
-        <MenuOutlined />
-      </button>
       {activeMenu && (
         <div className="nav__links">
           <NavLink to="/">
