@@ -47,6 +47,7 @@ img {
   display: flex;
   flex-direction: column;
   gap: 40px;
+  padding-top: 89px;
 
   h1 {
     font-size: 1.8rem;
@@ -242,11 +243,81 @@ img {
       }
     }
   }
+
+  &__coinDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    &__heading {
+      h1 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+      }
+    }
+
+    &__stats {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+
+      &__info {
+        display: flex;
+        justify-content: space-between;
+        padding: 15px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+
+        &:last-child {
+          border: none;
+        }
+
+        h3 {
+          font-size: 0.9rem;
+          font-weight: 500;
+        }
+        > div {
+          display: flex;
+          gap: 10px;
+
+          span {
+            font-size: 0.9rem;
+          }
+        }
+      }
+
+      &__card {
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        border-radius: 6px;
+
+        p {
+          font-weight: 600;
+          font-size: 0.9rem;
+        }
+
+        h2 {
+          font-size: 1rem;
+          font-weight: 600;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+          padding: 15px;
+        }
+
+        a {
+          color: #1677ff;
+          text-decoration: none;
+          font-size: 0.9rem;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
 }
 
 @media (min-width: $md) {
   .main {
     margin-left: 274.84px;
+    padding: 30px !important;
 
     &__cryptos {
       grid-template-columns: repeat(3, 1fr);
@@ -267,6 +338,10 @@ img {
     &__news__cards {
       grid-template-columns: repeat(3, 1fr);
     }
+
+    &__coinDetails__stats {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 }
 
@@ -274,6 +349,10 @@ img {
   .main {
     &__cryptos {
       grid-template-columns: repeat(5, 1fr);
+    }
+
+    &__coinDetails__stats {
+      grid-template-columns: repeat(3, 1fr);
     }
   }
 }

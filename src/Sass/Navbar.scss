@@ -3,13 +3,14 @@
 .nav {
   background: #001529;
   position: fixed;
+  width: 100%;
 
   &__logo {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 15px;
-    padding: 30px;
+    padding: 15px;
     width: max-content;
 
     img {
@@ -29,7 +30,6 @@
   }
 
   &__toggler {
-    display: none;
   }
 
   &__links {
@@ -62,5 +62,10 @@
 @media (min-width: $md) {
   .nav {
     min-height: 100vh;
+    width: initial;
+
+    &__logo {
+      padding: 30px;
+    }
   }
 }
