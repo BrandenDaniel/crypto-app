@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import millify from "millify";
 import { Link } from "react-router-dom";
-import { Card, Row, Col, Input } from "antd";
+import { Input } from "antd";
 import { useGetCryptosQuery } from "../services/cryptoApi";
 import Loader from "./Loader";
 
@@ -40,7 +40,11 @@ const Cryptocurrencies = ({ simplified }) => {
             <Link to={`/crypto/${currency.uuid}`}>
               <div className="main__cryptos__card__heading">
                 <h3>{`${currency.rank}. ${currency.name}`}</h3>
-                <img className="crypto-image" src={currency.iconUrl} />
+                <img
+                  className="crypto-image"
+                  src={currency.iconUrl}
+                  alt={currency.name}
+                />
               </div>
 
               <div className="main__cryptos__card__content">

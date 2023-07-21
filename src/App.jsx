@@ -1,6 +1,5 @@
 import React from "react";
 import { Routes, Route, Link } from "react-router-dom";
-import { Layout, Typography, Space } from "antd";
 import "./Sass/App.scss";
 
 import {

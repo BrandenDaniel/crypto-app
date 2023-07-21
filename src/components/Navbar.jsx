@@ -3,11 +3,9 @@ import "../Sass/Navbar.scss";
 import { Link, NavLink } from "react-router-dom";
 import {
   HomeOutlined,
-  MoneyCollectOutlined,
   BulbOutlined,
   FundOutlined,
   MenuOutlined,
-  MoneyCollectFilled,
 } from "@ant-design/icons";
 import icon from "../images/cryptocurrency.png";
 

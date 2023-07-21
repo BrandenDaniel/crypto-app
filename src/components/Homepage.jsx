@@ -1,7 +1,6 @@
 import React from "react";
 import { useGetCryptosQuery } from "../services/cryptoApi";
 import millify from "millify";
-import { Typography, Row, Col, Statistic } from "antd";
 import { ArrowRightOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import { Cryptocurrencies, News } from "../components";
